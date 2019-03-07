@@ -43,7 +43,7 @@ if ($obj['type'] == 'text') {
       if($prepend){
         $content .= $updateText .'<br>';
       }
-      $content .= wp_strip_all_tags($obj['located']) . $settings['separator-located'];
+      $content .= wp_strip_all_tags($obj['located']) . " - ";
       $content .= mb_substr($obj['body_html'], mb_strpos($obj['body_html'], '>') + 1, mb_strlen($obj['body_html']));
     } else {
       $content = $obj['description_html'] . "<!--more-->";
