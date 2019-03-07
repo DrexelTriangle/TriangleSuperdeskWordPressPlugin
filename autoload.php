@@ -196,11 +196,6 @@ if ($obj['type'] == 'text') {
               )
       );
 
-      if ($settings['priority_threshhold'] && $settings['priority_threshhold'] >= $obj['priority']) {
-        stick_post($post_ID);
-      } else {
-        unstick_post($post_ID);
-      }
     } else {
       $postarr = array(
           'post_title' => wp_strip_all_tags($obj['headline']),
@@ -233,10 +228,6 @@ if ($obj['type'] == 'text') {
           'time' => current_time('mysql')
               )
       );
-
-      if ($settings['priority_threshhold'] && $settings['priority_threshhold'] >= $obj['priority']) {
-        stick_post($post_ID);
-      }
     }
 
     /* save featured media */
