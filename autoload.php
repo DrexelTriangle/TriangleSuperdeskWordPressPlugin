@@ -34,29 +34,12 @@ if ($obj['type'] == 'text') {
         }
     }
 
-    if (!empty($obj['located'])) {
-      if($settings['location-modifier'] == 'all-caps'){
-      	$obj['located'] = mb_strtoupper($obj['located']);
-      }
-      $content = $obj['description_html'] . "<!--more-->";
-      $content .= '<p>';
-      if($prepend){
-        $content .= $updateText .'<br>';
-      }
-      $content .= wp_strip_all_tags($obj['located']) . " - ";
-      $content .= mb_substr($obj['body_html'], mb_strpos($obj['body_html'], '>') + 1, mb_strlen($obj['body_html']));
-    } else {
-      $content = $obj['description_html'] . "<!--more-->";
-      $content .= '<p>';
-      if($prepend){
-        $content .= $updateText .'<br>';
-      }
-      $content .= mb_substr($obj['body_html'], mb_strpos($obj['body_html'], '>') + 1, mb_strlen($obj['body_html']));
+    $content = $obj['description_html'] . "<!--more-->";
+    $content .= '<p>';
+    if($prepend){
+      $content .= $updateText .'<br>';
     }
-
-    /* if ($settings['display-copyright'] == "on" && isset($obj['associations']['featuremedia']['copyrightnotice'])) {
-      $content.= "<p>" . wp_strip_all_tags($obj['associations']['featuremedia']['copyrightnotice']) . "</p>";
-      } */
+    $content .= mb_substr($obj['body_html'], mb_strpos($obj['body_html'], '>') + 1, mb_strlen($obj['body_html']));
 
     if (!empty($obj['ednote'])) {
       $content .= "<p>Editors Note: " . wp_strip_all_tags($obj['ednote']) . "</p>";
