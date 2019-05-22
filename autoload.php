@@ -34,7 +34,7 @@ if ($obj['type'] == 'text') {
         }
     }
 
-    $content = $obj['description_html'] . "<!--more-->";
+    $content = $obj['description_html'];
     $content .= '<p>';
     if($prepend){
       $content .= $updateText .'<br>';
